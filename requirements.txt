@@ -1,0 +1,4 @@
+tqdm
+pynvim
+pytest
+pip
