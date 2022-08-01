@@ -152,7 +152,7 @@ create OK')
         dst = Path(self.dst) / self.today
         src = Path(self.src)
         if mode == 0:
-            calc = self.__calc_files(self.src)
+            calc = self.__calc_files(src)
             logging.getLogger("app.Unit").info(f'Source files - "{calc}"')
             try:
                 shutil.copytree(src,
@@ -160,7 +160,7 @@ create OK')
                                 copy_function=self.__copy_with_logging,
                                 ignore=shutil.ignore_patterns(*list(self.ignored)))
                 logging.getLogger("app.Unit").info("copy success")
-                calc = self.__calc_files(self.dst)
+                calc = self.__calc_files(dst)
                 logging.getLogger("app.Unit").info(f'Dest files - "{calc}"')
                 return True
             except Exception as err:
@@ -168,7 +168,7 @@ create OK')
                 return False
         elif mode == 1:
             logging.getLogger("app.Unit").info(f'calculating...')
-            calc = self.__calc_files(self.src)
+            calc = self.__calc_files(src)
             self.__bar = tqdm(total=calc)
             try:
                 shutil.copytree(src,
