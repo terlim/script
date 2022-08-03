@@ -81,7 +81,7 @@ rotation copy today "{unit.name}"')
     mail_settings["smtpserver"] = cfg.get("DEFAULT", "smtpserver")
     mail_settings["smtpport"] = cfg.get("DEFAULT", "smtpport")
     mail_settings["today"] = str(datetime.date.today())
-    mail_settings["company"] = cfg.get("DEFAUTL", "company")
+    mail_settings["company"] = cfg.get("DEFAULT", "company")
 
     logging.getLogger("app").info("Send report")
     send_report(FILE_TO_BODY, mail_settings)
