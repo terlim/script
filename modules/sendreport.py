@@ -13,7 +13,7 @@ def send_report(filebody: Path, mail_settings: dict):
     msg = MIMEMultipart()
     msg["From"] = mail_settings["mailfrom"]
     msg["To"] = mail_settings["mailto"]
-    msg["Subject"] = f"BackUp report for {mail_settings['today']}"
+    msg["Subject"] = f"BackUp report from {mail_settings['company']} for {mail_settings['today']}"
 
     try:
         with open(filebody, "r") as fh:
